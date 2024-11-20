@@ -1,4 +1,5 @@
 import flet as ft
+import math
 
 
 class CalcButton(ft.ElevatedButton):
@@ -29,6 +30,12 @@ class ExtraActionButton(CalcButton):
         CalcButton.__init__(self, text, button_clicked)
         self.bgcolor = ft.colors.BLUE_GREY_100
         self.color = ft.colors.BLACK
+
+class ScientificButton(CalcButton):
+    def __init__(self, text, button_clicked):
+        CalcButton.__init__(self, text, button_clicked)
+        self.bgcolor = ft.colors.GREEN
+        self.color = ft.colors.WHITE
 
 
 class CalculatorApp(ft.Container):
@@ -88,6 +95,12 @@ class CalculatorApp(ft.Container):
                         ),
                         DigitButton(text=".", button_clicked=self.button_clicked),
                         ActionButton(text="=", button_clicked=self.button_clicked),
+                    ]
+                ),
+                ft.Row(
+                    controls=[
+                        ScientificButton(text="√", button_clicked=self.button_clicked),
+                        ScientificButton(text="^", button_clicked=self.button_clicked),
                     ]
                 ),
             ]
