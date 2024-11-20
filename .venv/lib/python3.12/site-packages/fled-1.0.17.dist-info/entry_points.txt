@@ -1,0 +1,3 @@
+[console_scripts]
+fastled-wasm = fled.cli:main
+fled = fled.cli:main
